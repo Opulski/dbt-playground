@@ -1,14 +1,27 @@
 
 version: 2
+sources:
+  - name: incomestatements
+    schema: default
+    description: This is a replica of the Postgres database used by our app
+    tables:
+      - name: incomestatements
+        description: >
+          One record per order. Includes cancelled and deleted orders.
+        columns:
+          - name: Company_Name
+            description: The company
+            tests:
+              - not_null
+
 
 models:
     - name: my_first_dbt_model
       description: "A starter dbt model"
       columns:
-          - name: id
+          - name: Company_Name
             description: "The primary key for this table"
             tests:
-                - unique
                 - not_null
 
     - name: my_second_dbt_model

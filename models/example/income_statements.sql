@@ -11,7 +11,7 @@
 
 with source_data as (
 
-    select * from incomestatements as id
+    select * from {{ source('incomestatements', 'incomestatements') }} as id
 
 )
 
